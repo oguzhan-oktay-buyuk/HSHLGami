@@ -1,0 +1,90 @@
+html, body {
+  margin: 0;
+}
+
+h1, h2, a {
+  font-family: 'Oswald', sans-serif;
+}
+
+p {
+  font-family: Helvetica, Arial, sans-serif; 
+}
+
+.container {
+  width: 686px;
+  margin: 0 auto;
+}
+
+/* Main */
+.main {
+  height: 750px;
+  text-align: center;
+  background-image: url("img/uni.jpg");
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: 1000px 700px ;
+}
+
+.main h1 {
+  font-size: 175px;
+  color: #262626
+}
+
+.main p {
+  font-size: 31px;
+  color: #fff;
+}
+
+/* button colors */
+.main a {
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #ee7511;
+    padding: 12px 20px;
+    background-color: #262626;
+}
+
+
+/* Supporting */
+.supporting {
+  text-align: center;
+  padding: 50px 0 80px;
+  background-color: #1c1c1c;
+}
+
+.supporting .col {
+  float: left;
+  width: 30%;
+  padding: 10px;
+}
+
+.supporting h1,
+.supporting h2 {
+  color: #ffa800;
+  font-size: 40px;
+  margin-bottom: 10px;
+}
+
+.clearfix {
+  clear: both;
+}
+
+.supporting p {
+  color: #efefef;
+  margin-bottom: 20px;
+  line-height: 20px;
+}
+
+.supporting .btn {
+  background-color: #eee;
+  color: #1c1c1c;
+  font-size: 18px;
+  padding: 8px 30px;
+  text-decoration: none;
+  display: inline-block;
+
+}
+  #btnLeft{margin-left:100px;}
+  #btnRight{margin-right:25px;}
+
