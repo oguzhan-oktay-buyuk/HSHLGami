@@ -1,0 +1,29 @@
+{
+  "name": "Student",
+  "plural": "Students",
+  "displayName": "Our Students",
+  "description": "project...",
+  "relations": {
+    "classes": {
+      "type": "hasAndBelongsToMany",
+      "model": "Class"
+    },
+    "teachers": {
+      "type": "hasMany",
+      "model": "Professor",
+      "through": "Appointment"
+    }
+  },
+  
+  "base": "Person",
+  "properties": {
+    "stars": {
+      "type": "string",
+      "inputType": "text",
+      "label": "First Name"
+    }
+  },
+  "validations": [],
+  "acls": [],
+  "methods": []
+}
