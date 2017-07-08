@@ -15,7 +15,7 @@ export class RegisterComponent implements OnInit {
     password: String;
     address: String;
     phoneNumber: String;
-
+    points: String;
   constructor(private validateService: ValidateService, 
               private flashMessage:FlashMessagesService,
               private authService:AuthService,
@@ -31,7 +31,8 @@ export class RegisterComponent implements OnInit {
       email: this.email,    
       password: this.password,
       address: this.address,
-      phoneNumber: this.phoneNumber
+      phoneNumber: this.phoneNumber,
+      points: '0'
   }
   //Required Fieleds
   if(!this.validateService.validateRegister(students)){

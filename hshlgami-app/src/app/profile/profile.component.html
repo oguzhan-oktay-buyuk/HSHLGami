@@ -1,3 +1,8 @@
-<p>
-  profile works!
-</p>
+<div *ngIf = "students">
+  <h2 class="page-header">{{students.name}} {{students.surname}}</h2>
+  <ul class="list-group">
+  <li class="list-group-item">E-Mail: {{students.email}}</li>
+  <li class="list-group-item">Address: {{students.address}}</li>
+  <li class="list-group-item">Phone Number: {{students.phoneNumber}}</li>
+  <li class="list-group-item">Points: {{students.points}}</li>
+    

@@ -1,10 +1,14 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
-const Schema = mongoose.Schema;
 
-const studentsSchema = new Schema({
-    name: String,
-    surname: String,
+
+const studentsSchema = mongoose.Schema({
+    name: {
+        type:String
+    },
+    surname: { 
+        type: String
+    },
     email: {
         type: String,
         required: true
@@ -13,12 +17,20 @@ const studentsSchema = new Schema({
         type: String,
         required: true
     },
-    address: String,
-    phoneNumber: String,
+    address: {
+        type: String
+    },
+    phoneNumber:
+    { type:String
+    },
+    points: 
+    {
+        type: String
+    }
     //points: String
 });
 
-const Students = module.exports = mongoose.model('students', studentsSchema, 'student')
+const Students = module.exports = mongoose.model('students', studentsSchema, 'student');
 
 module.exports.getStudentsById = function(id, callback) {
     Students.findById(id, callback);

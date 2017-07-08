@@ -6,9 +6,11 @@ const passport = require('passport');
 const jwt = require('jsonwebtoken');
 const config = require("../config/databasesecret");
 const Video = require('../models/video');
-const Students = require('../models/students');
+const MyStudents = require('../models/students');
 
 const db = "mongodb://hshlgamidevelopers:MUHAHA123@ds147072.mlab.com:47072/hshlgamidb";
+//mongodb://hshlgamidevelopers:MUHAHA123@ds147072.mlab.com:47072/hshlgamidb
+//mongodb://localhost:27017/hshlgamidb
 mongoose.Promise = global.Promise
 
 mongoose.connection.on('connected', () => {
@@ -17,7 +19,7 @@ mongoose.connection.on('connected', () => {
 
 mongoose.connect(db, function(err){
     if(err){
-        consolo.error("Error! "+ err);
+        console.error("Error! "+ err);
     }
 });
 /*router.get('/', function(req, res){
@@ -27,7 +29,7 @@ mongoose.connect(db, function(err){
 //Register
 router.post('/register', (req, res, next) => 
 {
-    let newStudent = new Students({
+    let newStudent = new MyStudents({
         name: req.body.name,
         surname: req.body.surname,
         email: req.body.email,
@@ -36,7 +38,7 @@ router.post('/register', (req, res, next) =>
         phoneNumber: req.body.phoneNumber,
         points: req.body.points
     });
-    Students.addStudent(newStudent, (err, students) => {
+    MyStudents.addStudent(newStudent, (err, students) => {
         if(err){
             res.json({success: false, msg: 'Failed to register'});
         }else {
@@ -46,17 +48,17 @@ router.post('/register', (req, res, next) =>
 });
 
 //Authentication
-router.post('/authenticate', (req, res,next) => 
+router.post('/authenticate', (req, res, next) => 
 {
     const email = req.body.email;
     const password = req.body.password;
 
-    Students.getStudentsByEmail(email, (err, students) => {
+    MyStudents.getStudentsByEmail(email, (err, students) => {
         if(err) throw err;
         if(!students){
             return res.json({success: false, msg: 'Student not found.'});
         }
-        Students.comparePassword(password, students.password, (err, isMatch) => {
+        MyStudents.comparePassword(password, students.password, (err, isMatch) => {
             if(err) throw err;
             if(isMatch) {
                 const token = jwt.sign(students, config.secret, {
@@ -71,7 +73,7 @@ router.post('/authenticate', (req, res,next) =>
                         surname: students.surname,
                         email: students.email,
                         address: students.address,
-                        phoneNumber: students.phoneNumber,
+                        phoneNumber: students.phoneNumber, 
                         points: students.points
                     }
                 });
@@ -83,8 +85,9 @@ router.post('/authenticate', (req, res,next) =>
 });
 
 //Profile
-router.get('/profile', passport.authenticate('jwt', {session:false}), function(req, res) {
-    res.json({students: req.students});
+router.get('/profile', passport.authenticate('jwt', {session:false}), (req, res, next) => {
+    res.json({students: req.students});    
+    
 });
 
 //Validate
@@ -167,5 +170,6 @@ router.delete('/video/:id', function(req, res){
     });
     
 });
+
 
 module.exports = router;

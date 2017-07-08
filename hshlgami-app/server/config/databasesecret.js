@@ -1,3 +1,3 @@
 module.exports = {
-    secret: 'hshlgamidevelopers2017'
+    secret: '1'
 }

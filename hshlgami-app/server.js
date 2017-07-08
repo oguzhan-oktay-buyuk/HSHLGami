@@ -11,7 +11,6 @@ const port = 3000;
 
 const app = express();
 
-//const users = require("./routes/users");
 //CORS Middleware
 app.use(cors());
 
@@ -25,7 +24,7 @@ app.use(bodyParser.json());
 app.use(passport.initialize());
 app.use(passport.session());
 
-require('./server/config/passport')(passport); 
+require('./server/routes/passport')(passport); 
 
 app.use('/api', api); //Testing expressjs functionality
 

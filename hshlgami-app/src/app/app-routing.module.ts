@@ -6,6 +6,7 @@ import { RegisterComponent } from "app/register/register.component";
 import { LoginComponent } from "app/login/login.component";
 import { DashboardComponent } from "app/dashboard/dashboard.component";
 import { ProfileComponent } from "app/profile/profile.component";
+import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes = [
     {path: '', redirectTo:'/home', pathMatch: 'full'},
@@ -13,8 +14,8 @@ const routes: Routes = [
     {path: 'videos', component: VideoCenterComponent},
     {path: 'register', component: RegisterComponent},
     {path: 'login', component: LoginComponent},
-    {path: 'dashboard', component: DashboardComponent},
-    {path: 'profile', component: ProfileComponent}
+    {path: 'dashboard', component: DashboardComponent, canActivate:[AuthGuard] },
+    {path: 'profile', component: ProfileComponent,  canActivate:[AuthGuard]}
 
 ];
 
