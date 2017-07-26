@@ -1,0 +1,19 @@
+<router-outlet></router-outlet>
+    <div *ngIf = "students">
+  <h2 class="page-header"><img src="assets\img\icons8-Speech Bubble-64.png">Hello <b>{{students.name}} {{students.surname}},</b></h2>
+  <ul class="list-group">
+  <li class="list-group-item"><img src="assets\img\email.png"> {{students.email}}</li>
+  <li class="list-group-item"><img src="assets\img\adress.png"> {{students.address}}</li>
+  <li class="list-group-item"><img src="assets\img\phone.png"> {{students.phoneNumber}}</li>
+  <li class="list-group-item"><img src="assets\img\point.png"> {{students.points}}</li>
+<div class="wrapper">
+    <div class="sidebar" data-color='red' data-image="">
+        <sidebar-cmp></sidebar-cmp>
+        <div class="sidebar-background" style="background-image: url(../assets/img/sidebar-4.jpg)"></div>
+    </div>
+    <div class="main-panel">
+        <navbar-cmp></navbar-cmp>
+        <dashboard-cmp></dashboard-cmp>
+            <footer-cmp></footer-cmp>
+    </div>
+</div>

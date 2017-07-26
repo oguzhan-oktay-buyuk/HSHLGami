@@ -1,0 +1,102 @@
+
+<router-outlet></router-outlet>
+<div *ngIf = "students">
+<div class="container-fluid">
+
+
+    <div class="row">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header" data-background-color="red">
+                    <h4 class="title">My Profile</h4>
+                    <p class="category">See your profile</p>
+                </div>
+
+                <div class="card-content">
+                    <form (submit)="onChangeSubmit()">
+                        <div class="row">
+                            <div class="col-md-5">
+                                <div class="form-group form-black label-floating is-empty">
+                                        
+                                    <label class="control-label"> <font color="red"> HSHL University</font></label>
+                                    <input type="text" class="form-control" disabled>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group form-black label-floating is-empty">
+                                    <label class="control-label">{{students.name}}</label>
+                                    <input type="text" class="form-control" disabled >
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group form-black label-floating is-empty">
+                                    <label class="control-label">{{students.surname}}</label>
+                                    <input type="text" class="form-control" disabled>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group form-black label-floating is-empty">
+                                    <label class="control-label">{{students.phoneNumber}}</label>
+                                    <input type="text" class="form-control" disabled>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group form-black label-floating is-empty">
+                                    <label class="control-label">{{students.address}}</label>
+                                    <input type="text" class="form-control" disabled>
+                                </div>
+                            </div>
+                             <div class="col-md-6">
+                                <div class="form-group form-black label-floating is-empty">
+                                    <label class="control-label">{{students.email}}</label>
+                                    <input type="text" class="form-control" disabled>
+                                </div>
+                            </div>
+                        </div>
+
+                    
+
+                  
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label><b><font color="black">About Me</font></b></label>
+                                    <div class="form-group form-black label-floating is-empty">
+                                        <label class="control-label"> Please write about yourself!</label>
+                                        <textarea class="form-control" rows="5"></textarea>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card card-profile">
+                <div class="card-avatar">
+                    <a href="#/profile/user">
+                        <img class="img" src="../assets/img/faces/man.png" />
+                    </a>
+                </div>
+
+                <div class="content">
+                    <h6 class="category text-gray">Intelligent System Design</h6>
+                    <h4 class="card-title">{{students.name}}</h4>
+                    <p class="card-content">
+                        I have learned these subjects in this semester: <br><u><b>Web Engineering: </b></u> <br>Angular 4, ExpressJS, MongoDB, Bootstrap.
+                        <br><u><b>Lecture Professor: </b></u> <br> Alexander Stuckenholz 
+                    </p>
+                    <a href="#pablo" class="btn btn-danger btn-round">Follow</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
